@@ -32,7 +32,10 @@ class BlogPage extends Component {
   render() {
     const { blogItems } = this.state;
     return (
-      <BlogList items={blogItems}/>
+      <div>
+        <h1>Awesome React Blog!</h1>        
+        <BlogList items={blogItems}/>
+      </div>
     );
   }
 }

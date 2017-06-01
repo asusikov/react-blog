@@ -13,8 +13,7 @@ class BlogList extends Component {
     });
 
     return (
-      <div>
-        <h1>Awesome React Blog!</h1>
+      <div>        
         {blogItems}
       </div>
     );
