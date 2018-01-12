@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const { Component } = React;
 
@@ -10,6 +11,10 @@ class TextBox extends Component {
       </div>
     )
   }
+}
+
+TextBox.propTypes = {
+  // children:
 }
 
 export default TextBox;

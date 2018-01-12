@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import TextBox from './TextBox';
 import Image from './Image';
@@ -12,7 +13,7 @@ class BlogItem extends Component {
     const { item } = this.props;
     return (
       <div style={{ marginBottom: '20px' }}>
-        <Image src={item.image} width={300} height={52} alt={item.alt}/>
+        <Image {...item.image}/>
         <h3>
           <TextBox>
             {item.title}
@@ -29,5 +30,25 @@ class BlogItem extends Component {
     )
   }
 };
+
+BlogItem.propTypes = {
+  item: PropTypes.shape({
+    image: PropTypes.object,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    createdAt: PropTypes.instanceOf(moment),
+    updatedAt: PropTypes.instanceOf(moment)
+  })
+}
+
+BlogItem.defaultProps = {
+  item: {
+    image: {},
+    title: 'No Title',
+    author: 'No author',
+    createdAt: moment(),
+    updatedAt: moment()
+  }
+}
 
 export default BlogItem;

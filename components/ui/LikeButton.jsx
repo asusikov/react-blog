@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 const { Component } = React;
 
@@ -17,8 +18,16 @@ class LikeButton extends Component {
       <button onClick={this.handleClick}>
         Like ({this.state.numberOfLikes})
       </button>
-    )
+    );
   }
+}
+
+LikeButton.propTypes = {
+  numberOfLikes: PropTypes.number
+}
+
+LikeButton.defaultProps = {
+  numberOfLikes: 0
 }
 
 export default LikeButton;
