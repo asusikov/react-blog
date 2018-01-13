@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BlogItem from './BlogItem';
 
@@ -13,11 +14,19 @@ class BlogList extends Component {
     });
 
     return (
-      <div>        
+      <div>
         {blogItems}
       </div>
     );
   }
 };
+
+BlogList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object)
+}
+
+BlogList.defaultProps = {
+  items: []
+}
 
 export default BlogList;
