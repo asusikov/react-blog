@@ -1,5 +1,7 @@
 import React from 'react';
+
 import BlogList from '../ui/BlogList';
+import PieChart from '../ui/PieChart';
 
 const { Component } = React;
 
@@ -25,6 +27,7 @@ class BlogPage extends Component {
       <div>
         <h1>Awesome React Blog!</h1>
         <BlogList items={this.state.items} likePost={this.likePost}/>
+        <PieChart columns={this.state.items.map((item) => [item.title, item.numberOfLikes])} />
       </div>
     );
   }
