@@ -33,7 +33,7 @@ class BlogItem extends Component {
 
 BlogItem.propTypes = {
   item: PropTypes.shape({
-    image: PropTypes.object,
+    image: PropTypes.shape(Image.propTypes),
     title: PropTypes.string,
     author: PropTypes.string,
     createdAt: PropTypes.instanceOf(moment),
