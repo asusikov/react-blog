@@ -16,7 +16,7 @@ class PieChart extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.chart.load({
-      columns: this.props.columns
+      columns: nextProps.columns
     });
   }
   componentWillUnmount() {
