@@ -9,7 +9,7 @@ const blogItems = [
     id: 1,
     title: 'Hello, World!',
     author: 'The teacher',
-    numberOfLikes: 999,
+    numberOfLikes: 99,
     createdAt: moment().subtract(7, 'days'),
     updatedAt: moment().subtract(6, 'days'),
     image: {
@@ -23,7 +23,7 @@ const blogItems = [
     id: 2,
     title: 'The new entry. Part I.',
     author: 'The first learner',
-    numberOfLikes: 572,
+    numberOfLikes: 57,
     createdAt: moment().subtract(2, 'days'),
     updatedAt: moment().subtract(1, 'days'),
     image: {

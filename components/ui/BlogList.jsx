@@ -9,7 +9,7 @@ class BlogList extends Component {
   render() {
     const blogItems = this.props.items.map((item) => {
       return (
-        <BlogItem key={item.id} item={item}/>
+        <BlogItem key={item.id} item={item} likePost={this.props.likePost}/>
       );
     });
 
@@ -22,7 +22,8 @@ class BlogList extends Component {
 };
 
 BlogList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object)
+  items: PropTypes.arrayOf(PropTypes.object),
+  likePost: PropTypes.func.isRequired
 }
 
 BlogList.defaultProps = {

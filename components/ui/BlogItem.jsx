@@ -9,6 +9,13 @@ import LikeButton from './LikeButton';
 const { Component } = React;
 
 class BlogItem extends Component {
+  constructor() {
+    super(...arguments);
+    this.likePost = this.likePost.bind(this);
+  }
+  likePost() {
+    this.props.likePost(this.props.item.id);
+  }
   render() {
     const { item } = this.props;
     return (
@@ -17,7 +24,7 @@ class BlogItem extends Component {
         <h3>
           <TextBox>
             {item.title}
-            <LikeButton numberOfLikes={item.numberOfLikes}/>
+            <LikeButton numberOfLikes={item.numberOfLikes} likePost={this.likePost}/>
           </TextBox>
           <span style={{ fontSize: '14px', fontWeight: 'lighter' }}>
             Created by {item.author} {moment(item.createdAt).fromNow()}
@@ -38,7 +45,8 @@ BlogItem.propTypes = {
     author: PropTypes.string,
     createdAt: PropTypes.instanceOf(moment),
     updatedAt: PropTypes.instanceOf(moment)
-  })
+  }),
+  likePost: PropTypes.func.isRequired
 }
 
 BlogItem.defaultProps = {
