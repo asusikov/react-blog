@@ -6,9 +6,9 @@ const { Component } = React;
 class TextBox extends Component {
   render() {
     return (
-      <div>
+      <span className="card-title">
         {this.props.children}
-      </div>
+      </span>
     )
   }
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const { Component } = React;
 
-const LikeButton = ({ numberOfLikes, likePost}) => {
+const LikeButton = ({ className, numberOfLikes, likePost}) => {
   return (
-    <button onClick={likePost}>
+    <button onClick={likePost} className={`${className} waves-effect waves-light btn`}>
       Like ({numberOfLikes})
     </button>
   );
@@ -21,4 +22,8 @@ LikeButton.defaultProps = {
   numberOfLikes: 0
 }
 
-export default LikeButton;
+const StyledLikeButton = styled(LikeButton)`
+  width: max-content;
+`;
+
+export default StyledLikeButton;

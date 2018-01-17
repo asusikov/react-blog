@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import TextBox from './TextBox';
 import Image from './Image';
@@ -17,22 +18,24 @@ class BlogItem extends Component {
     this.props.likePost(this.props.item.id);
   }
   render() {
-    const { item } = this.props;
+    const { className, item } = this.props;
     return (
-      <div style={{ marginBottom: '20px' }}>
+      <div className={`card horizontal ${className}`}>
         <Image {...item.image}/>
-        <h3>
-          <TextBox>
-            {item.title}
+        <div className="card-stacked">
+          <div className="card-content">
+            <TextBox>
+              {item.title}
+            </TextBox>
             <LikeButton numberOfLikes={item.numberOfLikes} likePost={this.likePost}/>
-          </TextBox>
-          <span style={{ fontSize: '14px', fontWeight: 'lighter' }}>
-            Created by {item.author} {moment(item.createdAt).fromNow()}
-          </span>
-        </h3>
-        <span style={{ fontSize: '14px', fontWeight: 'lighter' }}>
-          Last updated {moment(item.updatedAt).fromNow()}
-        </span>
+            <span className="meta-data">
+              Created by {item.author} {moment(item.createdAt).fromNow()}
+            </span>
+            <span className="meta-data">
+              Last updated {moment(item.updatedAt).fromNow()}
+            </span>
+          </div>
+        </div>
       </div>
     )
   }
@@ -59,4 +62,16 @@ BlogItem.defaultProps = {
   }
 }
 
-export default BlogItem;
+const StyledBlogItem = styled(BlogItem)`
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    .meta-data {
+      font-size: 14px;
+      font-weight: lighter;
+    }
+  }
+
+`;
+
+export default StyledBlogItem;

@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const { Component } = React;
 
 class Image extends Component {
   render() {
-    const { width, src, alt, height } = this.props;
+    const { className, width, src, alt, height } = this.props;
     return (
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-      />
+      <div className={`card-image ${className}`}>
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+        />
+      </div>
     );
   }
 }
@@ -31,4 +34,10 @@ Image.defaultProps = {
   height: 100
 }
 
-export default Image;
+const StyledImage = styled(Image)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export default StyledImage;
