@@ -27,7 +27,10 @@ class BlogItem extends Component {
             <TextBox>
               {item.title}
             </TextBox>
-            <LikeButton numberOfLikes={item.numberOfLikes} likePost={this.likePost}/>
+            <LikeButton
+              numberOfLikes={item.numberOfLikes}
+              likePost={this.likePost}
+            />
             <span className="meta-data">
               Created by {item.author} {moment(item.createdAt).fromNow()}
             </span>
@@ -37,20 +40,22 @@ class BlogItem extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 BlogItem.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.number,
     image: PropTypes.shape(Image.propTypes),
     title: PropTypes.string,
     author: PropTypes.string,
     createdAt: PropTypes.instanceOf(moment),
     updatedAt: PropTypes.instanceOf(moment)
   }),
-  likePost: PropTypes.func.isRequired
-}
+  likePost: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
 
 BlogItem.defaultProps = {
   item: {
@@ -60,7 +65,7 @@ BlogItem.defaultProps = {
     createdAt: moment(),
     updatedAt: moment()
   }
-}
+};
 
 const StyledBlogItem = styled(BlogItem)`
   .card-content {

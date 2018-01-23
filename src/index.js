@@ -26,5 +26,5 @@ if (module.hot) {
       </AppContainer>,
       rootEl
     );
-  })
+  });
 }

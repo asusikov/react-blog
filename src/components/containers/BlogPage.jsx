@@ -1,5 +1,6 @@
 import React from 'react';
-import { fromJS, List, Map } from 'immutable';
+import PropTypes from 'prop-types';
+import { fromJS } from 'immutable';
 import styled from 'styled-components';
 
 import BlogList from '../ui/BlogList';
@@ -16,6 +17,7 @@ const blogItems = [
     createdAt: moment().subtract(7, 'days'),
     updatedAt: moment().subtract(6, 'days'),
     image: {
+      // eslint-disable-next-line max-len
       src: 'https://static.tildacdn.com/5d8f0d6b-4de8-4527-bd2e-56ea4400c1c9/thinknetica_transparent_grey_with_slogan.png',
       alt: 'Hello, World!',
       width: 300,
@@ -57,7 +59,11 @@ class BlogPage extends Component {
     this.setState(({ items }) => {
       const postIndex = items.findIndex((item) => item.get('id') === postId);
       return {
-        items: items.updateIn([postIndex, 'numberOfLikes'], 0, (numberOfLikes) => numberOfLikes + 1)
+        items: items.updateIn(
+          [postIndex, 'numberOfLikes'],
+          0,
+          (numberOfLikes) => numberOfLikes + 1
+        )
       };
     });
   }
@@ -90,6 +96,10 @@ class BlogPage extends Component {
     );
   }
 }
+
+BlogPage.propTypes = {
+  className: PropTypes.string
+};
 
 const StyledBlogPage = styled(BlogPage)`
   .main.container {
