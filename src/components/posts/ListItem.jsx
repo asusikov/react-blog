@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import TextBox from './TextBox';
-import Image from './Image';
+import CardTitle from 'elements/CardTitle';
+import Image from 'elements/Image';
 import LikeButton from './LikeButton';
+import Link from 'elements/Link';
 
-const { Component } = React;
+import { postPath } from 'helpers/routes';
 
-class BlogItem extends Component {
+class PostItem extends Component {
   constructor() {
     super(...arguments);
     this.likePost = this.likePost.bind(this);
@@ -24,9 +25,11 @@ class BlogItem extends Component {
         <Image {...item.image}/>
         <div className="card-stacked">
           <div className="card-content">
-            <TextBox>
-              {item.title}
-            </TextBox>
+            <Link to={postPath(item.id)}>
+              <CardTitle>
+                {item.title}
+              </CardTitle>
+            </Link>
             <LikeButton
               numberOfLikes={item.numberOfLikes}
               likePost={this.likePost}
@@ -44,7 +47,7 @@ class BlogItem extends Component {
   }
 }
 
-BlogItem.propTypes = {
+PostItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.shape(Image.propTypes),
@@ -57,7 +60,7 @@ BlogItem.propTypes = {
   className: PropTypes.string,
 };
 
-BlogItem.defaultProps = {
+PostItem.defaultProps = {
   item: {
     image: {},
     title: 'No Title',
@@ -67,7 +70,7 @@ BlogItem.defaultProps = {
   }
 };
 
-const StyledBlogItem = styled(BlogItem)`
+const StyledPostItem = styled(PostItem)`
   .card-content {
     display: flex;
     flex-direction: column;
@@ -79,4 +82,4 @@ const StyledBlogItem = styled(BlogItem)`
 
 `;
 
-export default StyledBlogItem;
+export default StyledPostItem;

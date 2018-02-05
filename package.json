@@ -5,13 +5,18 @@
   "main": "src/index.js",
   "dependencies": {
     "c3": "^0.4.18",
+    "dotenv-webpack": "^1.5.4",
     "html-webpack-plugin": "^2.30.1",
     "immutable": "^3.8.2",
     "materialize-css": "^0.100.2",
     "moment": "^2.20.1",
+    "qs": "^6.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "styled-components": "^2.4.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "styled-components": "^2.4.0",
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

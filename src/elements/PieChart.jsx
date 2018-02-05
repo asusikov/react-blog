@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import c3 from 'c3';
-
-const { Component } = React;
 
 class PieChart extends Component {
   componentDidMount() {
@@ -15,13 +13,13 @@ class PieChart extends Component {
       }
     });
   }
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate() {
     this.chart.load({
-      columns: nextProps.columns
+      columns: this.props.columns
     });
   }
   componentWillUnmount() {
-    this.chart.destroy();
+    this.chart = this.chart.destroy();
   }
   render() {
     return (

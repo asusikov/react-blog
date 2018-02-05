@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextBox = ({ children }) => (
+const CardTitle = ({ children }) => (
   <span className="card-title">
     {children}
   </span>
 );
 
-TextBox.propTypes = {
-  children: PropTypes.element.isRequired
+CardTitle.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
-export default TextBox;
+export default CardTitle;

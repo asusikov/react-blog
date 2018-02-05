@@ -8,6 +8,7 @@ const port = 3000;
 
 new webpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
+  historyApiFallback: true,
   hot: true,
   stats: {
     colors: true
